@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Form content -->
+    <main class="container p-5">
+        <div class="row">
+            <aside class="col-12 col-md-6">
+                <h2>Create Your Account</h2>
+                {% include 'forms.html' %}   
+                                    <!-- the include ^ function works the opposite as the 'extend' function.
+                                            this allows you to put this current block insode other html files, not pulling
+                                                them around this one. -->
+            </aside>
+        </div>
+    </main>
+{% endblock %}
