@@ -25,7 +25,7 @@ CORS(app)
 
 
 migrate = Migrate(app, root_db)
-login_manager = LoginManager(app)
+
 ma = Marshmallow(app)
 
 app.register_blueprint(site) #this confirms that everything in 'site' IS our blueprint

@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, render_template
 from helpers import token_required
 from models import db, Contact, User, contact_schema, contacts_schema
-# from models import db, User, contact_schema, contacts_schema
+from models import db, User, contact_schema, contacts_schema
 
 api = Blueprint('api', __name__, url_prefix='/api') #prefix means that it goes before the slug
 
@@ -16,7 +16,7 @@ def create_contact(current_user_token):
     email = request.json['email']
     phone_number = request.json['phone_number']
     address = request.json['address']
-    user_token = current_user_token
+    user_token = current_user_token.token
 
     print(f'BIG TESTER: {current_user_token.token}')
 
@@ -33,7 +33,6 @@ def create_contact(current_user_token):
 
 @api.route('/contacts', methods = ['GET'])
 @token_required
-
 def get_contact(current_user_token):
     a_user = current_user_token.token
     contacts = Contact.query.filter_by(user_token = a_user).all()

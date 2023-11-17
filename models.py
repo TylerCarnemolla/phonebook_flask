@@ -13,11 +13,11 @@ import secrets
 
 #set variables for class instantiation
 
-login_manager = LoginManager()
+
 
 ma = Marshmallow()
 db = SQLAlchemy()
-
+login_manager = LoginManager()
 
 @login_manager.user_loader
 def load_user(user_id):
